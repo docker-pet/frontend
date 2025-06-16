@@ -1,0 +1,20 @@
+:80
+
+root * /srv
+
+# /auth always serves auth.html
+handle_path /auth {
+    rewrite * /auth.html
+    file_server
+}
+
+# / always serves index.html
+handle_path / {
+    rewrite * /index.html
+    file_server
+}
+
+# Serve static files for all other requests
+handle {
+    file_server
+}
