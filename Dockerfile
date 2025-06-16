@@ -13,7 +13,7 @@ COPY . .
 RUN corepack enable
 
 # Install dependencies (Zero-Install)
-RUN yarn install --immutable
+RUN yarn
 
 # Build the project
 RUN yarn build
