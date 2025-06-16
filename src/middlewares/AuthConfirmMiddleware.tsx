@@ -1,6 +1,6 @@
 import { app } from '@/store/appStore';
-import { authConfirm, closeAuthConfirm, usePinEditCallback } from '@/store/authConfirmStore';
-import { WarningDiamondIcon, XCircleIcon } from '@phosphor-icons/react';
+import { authConfirm, clearNotification, closeAuthConfirm, usePinEditCallback } from '@/store/authConfirmStore';
+import { FingerprintIcon, XCircleIcon } from '@phosphor-icons/react';
 import { IconButton, PinInput, RootRenderer, Snackbar } from '@telegram-apps/telegram-ui';
 import { PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -13,49 +13,43 @@ export function AuthConfirmMiddleware({ children }: PropsWithChildren) {
 
   const pinEditCallback = usePinEditCallback();
 
-  const notification = (
-    <Snackbar
-      before={<WarningDiamondIcon size={32} />}
-      description="Message returned to the list"
-      onClose={console.log}
-      // onClose={() => setIsUndoSnackbarShown(false)}
-    >
-      Message restored
-    </Snackbar>
-  );
-
-  if (!authConfirm.opened) {
-    return (
-      <>
-        {children}
-        {notification}
-      </>
-    );
-  }
-
   return (
     <>
-      {/* Pin input */}
-      <PinInput
-        label={t('auth-confirm.title')}
-        pinCount={app.value.authPinLength}
-        onChange={pinEditCallback}
-      />
+      {/* Dialog close */}
+      {!authConfirm.opened && children}
 
-      {/* Close button */}
-      <RootRenderer>
-        <IconButton
-          mode="plain"
-          size="l"
-          onClick={closeAuthConfirm}
-          className={classNames('closeButton')}
-        >
-          <XCircleIcon size={28} />
-        </IconButton>
-      </RootRenderer>
+      {/* Auth Dialog */}
+      {authConfirm.opened && (
+        <>
+          {/* Pin input */}
+          <PinInput
+            label={t('auth-confirm.title')}
+            pinCount={app.value.authPinLength}
+            onChange={pinEditCallback}
+          />
+
+          {/* Close button */}
+          <RootRenderer>
+            <IconButton
+              mode="plain"
+              size="l"
+              onClick={closeAuthConfirm}
+              className={classNames('closeButton')}
+            >
+              <XCircleIcon size={28} />
+            </IconButton>
+          </RootRenderer>
+        </>
+      )}
 
       {/* Notification */}
-      {notification}
+      {authConfirm.notification && (
+        <Snackbar
+          before={<FingerprintIcon size={32} />}
+          description={t(`auth-confirm.notifications.${authConfirm.notification}`)}
+          onClose={clearNotification}
+        />
+      )}
     </>
-  );
+  )
 }

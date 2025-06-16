@@ -15,6 +15,12 @@ export function closeAuthConfirm() {
   toggleAuthConfirm(false);
 }
 
+export function clearNotification() {
+  runInAction(() => {
+    authConfirm.notification = null;
+  });
+}
+
 export function toggleAuthConfirm(value: boolean) {
   runInAction(() => {
     authConfirm.opened = value;
@@ -52,7 +58,7 @@ export function usePinEditCallback() {
       .catch((error) => {
         console.error('Failed to confirm pin:', error);
         runInAction(() => {
-          authConfirm.notification = 'auth-confirm.error';
+          authConfirm.notification = 'catch';
         });
       });
   };
