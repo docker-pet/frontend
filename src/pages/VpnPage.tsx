@@ -31,44 +31,44 @@ import { usePickedServer } from '@/helpers/usePickedServer';
 
 const links: Array<{
   title: string;
-  link: string;
+  redirect: string;
   Icon: FC<{ size?: number }>;
 }> = [
   {
     title: 'Android (Play Market)',
-    link: 'https://play.google.com/store/apps/details?id=org.outline.android.client',
+    redirect: 'outline:play-market',
     Icon: GooglePlayLogoIcon,
   },
   {
     title: 'Android (APK файл)',
-    link: 'https://s3.amazonaws.com/outline-releases/client/android/stable/Outline-Client.apk',
+    redirect: 'outline:apk',
     Icon: AndroidLogoIcon,
   },
   {
     title: 'IOS (App Store)',
-    link: 'https://itunes.apple.com/us/app/outline-app/id1356177741',
+    redirect: 'outline:app-store',
     Icon: AppStoreLogoIcon,
   },
   {
     title: 'Windows',
-    link: 'https://s3.amazonaws.com/outline-releases/client/windows/stable/Outline-Client.exe',
+    redirect: 'outline:windows',
     Icon: WindowsLogoIcon,
   },
   {
     title: 'MacOS',
-    link: 'https://itunes.apple.com/us/app/outline-app/id1356178125',
+    redirect: 'outline:macos',
     Icon: AppleLogoIcon,
   },
   {
     title: 'Другие системы',
-    link: 'https://getoutline.org/ru/get-started/#step-3',
+    redirect: 'outline:other',
     Icon: LinuxLogoIcon,
   },
 ];
 
 export const VpnPage: FC = () => {
   const link = `ssconf://${app.value.appDomain}/api/outline/${user.value.id}/${user.value.outlineToken}#${encodeURIComponent(app.value.appTitle)}`;
-  const redirectLink = `https://${app.value.appDomain}/api/outline/redirect/${user.value.id}/${user.value.outlineToken}`;
+  const redirectLink = `https://${app.value.appDomain}/redirect?type=outline&id=${encodeURIComponent(user.value.id)}&token=${encodeURIComponent(user.value.outlineToken)}&title=${encodeURIComponent(app.value.appTitle)}`;
   const [copiedNotification, setCopiedNotification] = useState(false);
   const pickedServer = usePickedServer();
 
@@ -179,14 +179,13 @@ export const VpnPage: FC = () => {
             'После установки клиента, вы можете подключиться к VPN серверу, используя ключ доступа, указанный выше.'
           }
         >
-          {links.map(({ title, link, Icon }) => (
+          {links.map(({ title, redirect, Icon }) => (
             <Link
-              key={title}
+              key={redirect}
               to="/"
               onClick={(e) => {
                 e.preventDefault();
-                openLink(link, {
-                  tryBrowser: 'chrome',
+                openLink(`https://${app.value.appDomain}/redirect?type=${encodeURIComponent(redirect)}`, {
                   tryInstantView: false,
                 });
               }}

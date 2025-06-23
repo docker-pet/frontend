@@ -175,7 +175,9 @@ export const IndexPage: FC = () => {
             to="/"
             onClick={(e) => {
               e.preventDefault();
-              openLink('https://github.com/docker-pet');
+              openLink(`https://${app.value.appDomain}/redirect?type=github`, {
+                tryInstantView: false,
+              });
             }}
           >
             <Cell

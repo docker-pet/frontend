@@ -100,8 +100,7 @@ export const LampaPage: FC = () => {
             to="/"
             onClick={(e) => {
               e.preventDefault();
-              openLink(`https://testflight.apple.com/join/4xqg1q15`, {
-                tryBrowser: 'chrome',
+              openLink(`https://${app.value.appDomain}/redirect?type=${encodeURIComponent("lampa:testflight")}`, {
                 tryInstantView: false,
               });
             }}
@@ -128,14 +127,9 @@ export const LampaPage: FC = () => {
             to="/"
             onClick={(e) => {
               e.preventDefault();
-              // TODO from backend
-              openLink(
-                `https://github.com/lampa-app/LAMPA/?tab=readme-ov-file#last-release-links`,
-                {
-                  tryBrowser: 'chrome',
-                  tryInstantView: false,
-                },
-              );
+              openLink(`https://${app.value.appDomain}/redirect?type=${encodeURIComponent("lampa:apk")}`, {
+                tryInstantView: false,
+              });
             }}
           >
             <Cell
@@ -155,8 +149,7 @@ export const LampaPage: FC = () => {
             to="/"
             onClick={(e) => {
               e.preventDefault();
-              openLink(`https://youtu.be/z4QJ5c4aR54`, {
-                tryBrowser: 'chrome',
+              openLink(`https://${app.value.appDomain}/redirect?type=${encodeURIComponent("lampa:media-station-x")}`, {
                 tryInstantView: false,
               });
             }}

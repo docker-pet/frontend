@@ -1,5 +1,6 @@
 import { App } from '@/components/App.tsx';
 import { ErrorBoundary } from '@/components/ErrorBoundary.tsx';
+import { AppRedirect } from './AppRedirect';
 import { AppAuth } from './AppAuth';
 
 function ErrorBoundaryError({ error }: { error: unknown }) {
@@ -31,6 +32,14 @@ export function RootAuth() {
   return (
     <ErrorBoundary fallback={ErrorBoundaryError}>
       <AppAuth />
+    </ErrorBoundary>
+  );
+}
+
+export function RootRedirect() {
+  return (
+    <ErrorBoundary fallback={ErrorBoundaryError}>
+      <AppRedirect />
     </ErrorBoundary>
   );
 }

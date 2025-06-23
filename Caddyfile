@@ -8,6 +8,12 @@ handle_path /auth {
     file_server
 }
 
+# /redirect
+handle_path /redirect {
+    rewrite * /redirect.html
+    file_server
+}
+
 # / always serves index.html
 handle_path / {
     rewrite * /index.html
