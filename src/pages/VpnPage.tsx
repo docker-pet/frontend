@@ -81,6 +81,7 @@ export const VpnPage: FC = () => {
           <Input
             header="Ключ доступа"
             value={link}
+            readOnly
             after={
               <IconButton
                 mode="bezeled"
@@ -93,7 +94,6 @@ export const VpnPage: FC = () => {
                 <ClipboardTextIcon size="20" />
               </IconButton>
             }
-            readOnly
           />
 
           <Select

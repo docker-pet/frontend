@@ -93,8 +93,8 @@ export const IndexPage: FC = () => {
                 </IconContainer>
               }
               subtitle={
-                !user.value.premium
-                  ? 'Подписка активана'
+                user.value.premium
+                  ? 'Подписка активна'
                   : 'Дополнительные VPN локации, дополнительные источники в Lampa (скоро)'
               }
               multiline

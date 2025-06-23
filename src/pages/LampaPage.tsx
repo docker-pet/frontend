@@ -1,11 +1,13 @@
-import { Fragment, type FC } from 'react';
+import { Fragment, useState, type FC } from 'react';
 import {
   Cell,
+  IconButton,
   IconContainer,
   InlineButtons,
   Input,
   List,
   Section,
+  Snackbar,
 } from '@telegram-apps/telegram-ui';
 
 import { Page } from '@/components/Page.tsx';
@@ -18,8 +20,9 @@ import {
   GooglePlayLogoIcon,
   AppleLogoIcon,
   StarIcon,
+  ClipboardTextIcon,
 } from '@phosphor-icons/react';
-import { openLink } from '@telegram-apps/sdk-react';
+import { copyTextToClipboard, openLink } from '@telegram-apps/sdk-react';
 import { app } from '@/store/appStore';
 import { useNavigate } from 'react-router-dom';
 import { Link } from '@/components/Link/Link';
@@ -28,6 +31,7 @@ import { user } from '@/store/userStore';
 export const LampaPage: FC = () => {
   const navigate = useNavigate();
   const link = `https://lampa.${app.value.appDomain}`;
+  const [copiedNotification, setCopiedNotification] = useState(false);
 
   return (
     <Page>
@@ -69,7 +73,23 @@ export const LampaPage: FC = () => {
           header="Просмотр в браузере"
           footer="Пожалуйста, обратите внимание: единственным официальным ресурсом является наш сайт. Мы не разрабатываем приложение Lampa и не несем ответственности за сторонние или кастомные версии, ссылки на которые приведены ниже."
         >
-          <Input header="Адрес" value={link} readOnly />
+          <Input
+            header="Адрес"
+            value={link}
+            readOnly
+            after={
+              <IconButton
+                mode="bezeled"
+                size="s"
+                onClick={() => {
+                  void copyTextToClipboard(link);
+                  setCopiedNotification(true);
+                }}
+              >
+                <ClipboardTextIcon size="20" />
+              </IconButton>
+            }
+          />
         </Section>
 
         <Section
@@ -155,6 +175,14 @@ export const LampaPage: FC = () => {
           </Link>
         </Section>
       </List>
+  
+      {copiedNotification && (
+        <Snackbar
+          before={<ClipboardTextIcon size={32} />}
+          description={'Ссылка скопирована в буфер обмена.'}
+          onClose={() => setCopiedNotification(false)}
+        />
+      )}
     </Page>
   );
 };
