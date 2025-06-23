@@ -2,6 +2,7 @@ import { useState, type FC } from 'react';
 import {
   Button,
   Cell,
+  Checkbox,
   IconButton,
   Input,
   List,
@@ -24,7 +25,7 @@ import { copyTextToClipboard, openLink } from '@telegram-apps/sdk-react';
 import { app } from '@/store/appStore';
 import { Link } from '@/components/Link/Link';
 import { user } from '@/store/userStore';
-import { outline, pickServer } from '@/store/outlineStore';
+import { outline, saveSettings } from '@/store/outlineStore';
 import emojiFlags from 'emoji-flags';
 import { usePickedServer } from '@/helpers/usePickedServer';
 
@@ -97,13 +98,15 @@ export const VpnPage: FC = () => {
           />
 
           <Select
-            header="Выбор локации"
+            header="Предпочительная локация"
             onChange={(e) => {
-              void pickServer(e.target.value);
+              void saveSettings({
+                outlineServer: e.target.value
+              });
             }}
           >
             <option value="" selected={!pickedServer}>
-              Выбирать случайную
+              🎲 Случайный сервер (EU)
             </option>
             {Object.values(outline.value).map((server) => (
               <option
@@ -117,6 +120,42 @@ export const VpnPage: FC = () => {
               </option>
             ))}
           </Select>
+
+          <Cell
+            Component="label"
+            before={<Checkbox
+              name="checkbox"
+              value="true"
+              checked={user.value.outlinePrefixEnabled}
+              onChange={(e) => {
+                void saveSettings({
+                  outlinePrefixEnabled: e.target.checked,
+                });
+              }}
+            />}
+            description="🕵️‍♂️ Все TCP/UDP-пакеты будут маскироваться под трафик популярных приложений."
+            multiline
+          >
+            Маскировать трафик
+          </Cell>
+
+          <Cell
+            Component="label"
+            before={<Checkbox
+              name="checkbox"
+              value="true"
+              checked={user.value.outlineReverseServerEnabled}
+              onChange={(e) => {
+                void saveSettings({
+                  outlineReverseServerEnabled: e.target.checked,
+                });
+              }}
+            />}
+            description="🥷 Включает точку входа в России. Используйте только при блокировке прямого подключения провайдером."
+            multiline
+          >
+            Обход цензуры
+          </Cell>
 
           <div style={{ padding: 16 }}>
             <Button

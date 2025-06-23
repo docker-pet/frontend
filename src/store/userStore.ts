@@ -16,6 +16,8 @@ const DEFAULT_GUEST_USER: IUser = {
   avatar: '',
   outlineToken: '',
   outlineServer: '',
+  outlinePrefixEnabled: false,
+  outlineReverseServerEnabled: false,
 
   collectionId: '',
   collectionName: '',

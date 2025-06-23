@@ -20,6 +20,8 @@ export interface IUser {
 
   outlineToken: string;
   outlineServer: string;
+  outlinePrefixEnabled: boolean;
+  outlineReverseServerEnabled: boolean;
 
   created: string;
   updated: string;

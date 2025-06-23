@@ -49,13 +49,24 @@ const setNotification = action((notification: string | null) => {
 
 export const clearNotification = () => setNotification(null);
 
-export const pickServer = async (id: string) => {
+export const saveSettings = async (data: {
+  outlineServer?: string,
+  outlinePrefixEnabled?: boolean,
+  outlineReverseServerEnabled?: boolean,
+}) => {
+  const { 
+    outlineServer = user.value.outlineServer,
+    outlinePrefixEnabled = user.value.outlinePrefixEnabled,
+    outlineReverseServerEnabled = user.value.outlineReverseServerEnabled,
+  } = data;
+
   try {
     await pb.send<undefined>('/api/outline/settings', {
       method: 'POST',
       body: JSON.stringify({
-        outlinePrefixEnabled: true,
-        outlineServer: id,
+        outlineServer,
+        outlinePrefixEnabled,
+        outlineReverseServerEnabled,
       }),
     });
     setNotification('success');
