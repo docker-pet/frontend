@@ -1,0 +1,16 @@
+.container {
+  position: relative;
+  display: block;
+  height: 120px;
+  background: var(--tgui--section_bg_color) url(./LampaBanner.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+.logo {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  top: 8px;
+  left: 8px;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.8));
+}
