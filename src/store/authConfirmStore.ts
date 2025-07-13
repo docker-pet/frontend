@@ -64,7 +64,7 @@ export function setPin(pin: number[]) {
   }
 
   // Send pin to server
-  pb.send<{ type: string }>('/api/otp/confirm', {
+  pb.send<{ notification: string }>('/api/otp/confirm', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ export function setPin(pin: number[]) {
     }),
   })
     .then((response) => {
-      showNotification(response.type);
+      showNotification(response.notification);
     })
     .catch((error) => {
       console.error('Failed to confirm pin:', error);
