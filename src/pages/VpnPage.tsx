@@ -67,8 +67,10 @@ const links: Array<{
 ];
 
 export const VpnPage: FC = () => {
-  const link = `ssconf://${app.value.appDomain}/api/outline/${user.value.id}/${user.value.outlineToken}#${encodeURIComponent(app.value.appTitle)}`;
-  const redirectLink = `https://${app.value.appDomain}/redirect?type=outline&id=${encodeURIComponent(user.value.id)}&token=${encodeURIComponent(user.value.outlineToken)}&title=${encodeURIComponent(app.value.appTitle)}`;
+  const appDomain = `connect.${user.value.outlineReverseServerEnabled ? app.value.appDomainReverse : app.value.appDomain}`;
+  const configTitle = encodeURIComponent(`${app.value.appTitle}${user.value.outlineReverseServerEnabled ? ` (🥷 Обход цензуры)` : ''}`)
+  const link = `ssconf://${appDomain}/api/outline/${user.value.id}/${user.value.outlineToken}#${configTitle}`;
+  const redirectLink = `https://${appDomain}/redirect?type=outline&id=${encodeURIComponent(user.value.id)}&token=${encodeURIComponent(user.value.outlineToken)}&title=${configTitle}`;
   const [copiedNotification, setCopiedNotification] = useState(false);
   const pickedServer = usePickedServer();
 
@@ -126,24 +128,6 @@ export const VpnPage: FC = () => {
             before={<Checkbox
               name="checkbox"
               value="true"
-              checked={user.value.outlinePrefixEnabled}
-              onChange={(e) => {
-                void saveSettings({
-                  outlinePrefixEnabled: e.target.checked,
-                });
-              }}
-            />}
-            description="🕵️‍♂️ Все TCP/UDP-пакеты будут маскироваться под трафик популярных приложений. Если при подключении к серверу возникают проблемы, отключите маскировку."
-            multiline
-          >
-            Маскировать трафик
-          </Cell>
-
-          <Cell
-            Component="label"
-            before={<Checkbox
-              name="checkbox"
-              value="true"
               checked={user.value.outlineReverseServerEnabled}
               onChange={(e) => {
                 void saveSettings({
@@ -151,10 +135,10 @@ export const VpnPage: FC = () => {
                 });
               }}
             />}
-            description="🥷 Включает точку входа в России. Используйте только при блокировке прямого подключения провайдером."
+            description="🥷 Альтернативное подключение через домен внутри зоны с ограничениями доступа. Потребует повторного добавления Outline конфигурации."
             multiline
           >
-            Обход цензуры
+            Обход DNS-цензуры
           </Cell>
 
           <div style={{ padding: 16 }}>
@@ -185,7 +169,7 @@ export const VpnPage: FC = () => {
               to="/"
               onClick={(e) => {
                 e.preventDefault();
-                openLink(`https://${app.value.appDomain}/redirect?type=${encodeURIComponent(redirect)}`, {
+                openLink(`https://${appDomain}/redirect?type=${encodeURIComponent(redirect)}`, {
                   tryInstantView: false,
                 });
               }}

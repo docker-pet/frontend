@@ -60,12 +60,14 @@ export const saveSettings = async (data: {
     outlineReverseServerEnabled = user.value.outlineReverseServerEnabled,
   } = data;
 
+  void outlinePrefixEnabled;
+
   try {
     await pb.send<undefined>('/api/outline/settings', {
       method: 'POST',
       body: JSON.stringify({
         outlineServer,
-        outlinePrefixEnabled,
+        outlinePrefixEnabled: false,
         outlineReverseServerEnabled,
       }),
     });

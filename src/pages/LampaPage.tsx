@@ -31,6 +31,7 @@ import { user } from '@/store/userStore';
 export const LampaPage: FC = () => {
   const navigate = useNavigate();
   const link = `https://lampa.${app.value.appDomain}`;
+  const linkReverse = app.value.appDomainReverse ? `https://lampa.${app.value.appDomainReverse}` : null;
   const [copiedNotification, setCopiedNotification] = useState(false);
 
   return (
@@ -90,6 +91,24 @@ export const LampaPage: FC = () => {
               </IconButton>
             }
           />
+
+          {linkReverse && <Input
+            header="Альтернативный адрес"
+            value={linkReverse}
+            readOnly
+            after={
+              <IconButton
+                mode="bezeled"
+                size="s"
+                onClick={() => {
+                  void copyTextToClipboard(linkReverse);
+                  setCopiedNotification(true);
+                }}
+              >
+                <ClipboardTextIcon size="20" />
+              </IconButton>
+            }
+          />}
         </Section>
 
         <Section

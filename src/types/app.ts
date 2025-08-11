@@ -1,6 +1,7 @@
 export interface IApp {
   id: string;
   appDomain: string;
+  appDomainReverse: string;
   appTitle: string;
   telegramChannelInviteLink: string;
   telegramPremiumChannelInviteLink: string;

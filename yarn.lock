@@ -1254,19 +1254,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@telegram-apps/bridge@npm:^2.8.3":
-  version: 2.8.3
-  resolution: "@telegram-apps/bridge@npm:2.8.3"
+"@telegram-apps/bridge@npm:^2.10.3":
+  version: 2.10.3
+  resolution: "@telegram-apps/bridge@npm:2.10.3"
   dependencies:
     "@telegram-apps/signals": "npm:^1.1.2"
     "@telegram-apps/toolkit": "npm:^2.1.3"
-    "@telegram-apps/transformers": "npm:^2.2.4"
-    "@telegram-apps/types": "npm:^2.0.1"
+    "@telegram-apps/transformers": "npm:^2.2.6"
+    "@telegram-apps/types": "npm:^2.0.3"
     better-promises: "npm:^0.4.1"
     error-kid: "npm:^0.0.7"
     mitt: "npm:^3.0.1"
     valibot: "npm:1.0.0"
-  checksum: 10c0/f55422e517859a90a5174ac05553246878c0676033f6895432eef04b5fd22e15b7bb2e7d49ec7bdc327736a288c75eebe696407bf5a69a7789711ff38280f0d8
+  checksum: 10c0/97071a9eb0c4ca6790b84de894a961c82639c7b0bbfdf4ab29e1686b0dc2acf7ef08c117847af16aead1635ca2c1558489749691a69a842288e9140ba84f068f
   languageName: node
   linkType: hard
 
@@ -1277,35 +1277,35 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@telegram-apps/sdk-react@npm:^3.3.1":
-  version: 3.3.1
-  resolution: "@telegram-apps/sdk-react@npm:3.3.1"
+"@telegram-apps/sdk-react@npm:^3.3.6":
+  version: 3.3.6
+  resolution: "@telegram-apps/sdk-react@npm:3.3.6"
   dependencies:
-    "@telegram-apps/sdk": "npm:^3.10.1"
+    "@telegram-apps/sdk": "npm:^3.11.4"
   peerDependencies:
     "@types/react": ^17.0.0 || ^18.0.0 || ^19.0.0
     react: ^17.0.0 || ^18.0.0 || ^19.0.0
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 10c0/b1c87b5444635bc233cf2c2a2e3237184cef13ba37e5c1cf4584fa7756694cee44ac2398fe6344bc7100e59b1bbaa0b3ce520bb542baf6a5c7e590eb29e3dc75
+  checksum: 10c0/319713ef5794e361953b4517e784153189e66d13384d0c15a26e4eac97ce31c45e2b3bce766eafaeda3540be7bb5f3b1dc5f8a4150999a15bf6f31c01ddd78d9
   languageName: node
   linkType: hard
 
-"@telegram-apps/sdk@npm:^3.10.1":
-  version: 3.10.1
-  resolution: "@telegram-apps/sdk@npm:3.10.1"
+"@telegram-apps/sdk@npm:^3.11.4":
+  version: 3.11.4
+  resolution: "@telegram-apps/sdk@npm:3.11.4"
   dependencies:
-    "@telegram-apps/bridge": "npm:^2.8.3"
+    "@telegram-apps/bridge": "npm:^2.10.3"
     "@telegram-apps/navigation": "npm:^1.0.14"
     "@telegram-apps/signals": "npm:^1.1.2"
     "@telegram-apps/toolkit": "npm:^2.1.3"
-    "@telegram-apps/transformers": "npm:^2.2.4"
-    "@telegram-apps/types": "npm:^2.0.1"
+    "@telegram-apps/transformers": "npm:^2.2.6"
+    "@telegram-apps/types": "npm:^2.0.3"
     better-promises: "npm:^0.4.1"
     error-kid: "npm:^0.0.7"
     valibot: "npm:1.0.0"
-  checksum: 10c0/30c44632015bd9e22b23e5c78fb5ac968fb6fb084143a0a211669e03fce29f0a909628536dd73601cd9c54e8e77c13e1f2b6a29d8ced528e0156215c81530f62
+  checksum: 10c0/2c1a8b104a4b4dbf6ba3787b52b2a96c55ab658965f995fdd23c0cb3904aa08b75b7432f38dde5159e2fb7bb622439b1b59a24f39640fe7959456ca0bcffb9e6
   languageName: node
   linkType: hard
 
@@ -1316,9 +1316,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@telegram-apps/telegram-ui@npm:^2.1.8":
-  version: 2.1.8
-  resolution: "@telegram-apps/telegram-ui@npm:2.1.8"
+"@telegram-apps/telegram-ui@npm:^2.1.9":
+  version: 2.1.9
+  resolution: "@telegram-apps/telegram-ui@npm:2.1.9"
   dependencies:
     "@floating-ui/react-dom": "npm:^2.0.8"
     "@swc/helpers": "npm:^0.5.3"
@@ -1327,7 +1327,7 @@ __metadata:
   peerDependencies:
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: 10c0/609e53b0e9c00bc2701c1f74878bf6125252ecd5cce1ffa966e523ec9b893df54d99c95f1eb5f2ad8080d3cb638e1c74920c745375ff21f2d9dd7e07d27b150b
+  checksum: 10c0/7dea28df0544b56975d5d841793f501df5889ebfb4811ac4b36a5a30b2f665c2838fa1bebce2e7caa4724571727b40afaa716ba46363c47562eb88ac1135e3a8
   languageName: node
   linkType: hard
 
@@ -1338,21 +1338,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@telegram-apps/transformers@npm:^2.2.4":
-  version: 2.2.4
-  resolution: "@telegram-apps/transformers@npm:2.2.4"
+"@telegram-apps/transformers@npm:^2.2.6":
+  version: 2.2.6
+  resolution: "@telegram-apps/transformers@npm:2.2.6"
   dependencies:
     "@telegram-apps/toolkit": "npm:^2.1.3"
-    "@telegram-apps/types": "npm:^2.0.1"
+    "@telegram-apps/types": "npm:^2.0.3"
     valibot: "npm:1.0.0-beta.14"
-  checksum: 10c0/3fb41619b46c3234647a8857e6d4732f694c28af0e46289f1c6897ed9fb13bcd513ab73aff819bce430da32445d723231fb858e2e585a4f2bcdaf67a952bb3f4
+  checksum: 10c0/474e7a0e5b7ae044fa631ffe5b05613a013f59c7ec4b0e92890a88c7bc13d1015f953e3e05b88548e3614c794623682f96f0fcc1811ca6db4df55437a7d7a040
   languageName: node
   linkType: hard
 
-"@telegram-apps/types@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "@telegram-apps/types@npm:2.0.1"
-  checksum: 10c0/91d3e6cb0f96c9341f73867096edb3e3b292c0cbe8bab4259dd6b9fb3479eb5e3445ce466c8648bdb1aacdcc0f2766853064191f1ea620855ab502a3ebfedb08
+"@telegram-apps/types@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "@telegram-apps/types@npm:2.0.3"
+  checksum: 10c0/54dafe1ca6890c9d4f5ed2f49834c4d0f49d4cf7986fcbcccb14990f795cc2fb18918fce0c1a4a73809150b0c7372df99d6e6ef36aa59b37a09eff0cd4a92cec
   languageName: node
   linkType: hard
 
@@ -1374,49 +1374,49 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tonconnect/protocol@npm:^2.2.7":
-  version: 2.2.7
-  resolution: "@tonconnect/protocol@npm:2.2.7"
+"@tonconnect/protocol@npm:^2.3.0":
+  version: 2.3.0
+  resolution: "@tonconnect/protocol@npm:2.3.0"
   dependencies:
     tweetnacl: "npm:^1.0.3"
     tweetnacl-util: "npm:^0.15.1"
-  checksum: 10c0/f007e1c8939ebd74018646931869134d56e2bb3225d6cb8359dfb55a07005896cc806428be4bc5a131043a85da0303f532febeaf433b739807efbddfaea23240
+  checksum: 10c0/5558aa86b1d6054c0941f39e686b3eb9a0d3be5e4d18e4b5f4f306b577e020ecba05d0ed0eb326eb0efcabbee90e42d37650f14a24b953404d71042ef10900be
   languageName: node
   linkType: hard
 
-"@tonconnect/sdk@npm:3.1.0":
-  version: 3.1.0
-  resolution: "@tonconnect/sdk@npm:3.1.0"
+"@tonconnect/sdk@npm:3.2.0":
+  version: 3.2.0
+  resolution: "@tonconnect/sdk@npm:3.2.0"
   dependencies:
     "@tonconnect/isomorphic-eventsource": "npm:^0.0.2"
     "@tonconnect/isomorphic-fetch": "npm:^0.0.3"
-    "@tonconnect/protocol": "npm:^2.2.7"
-  checksum: 10c0/37ccb09c180effe01d3b85f8195a3abda9b7cdb52bd697c72c7af1693b0f4e5872251ac3de81aaefc6b28f9003584d884af582cff5a3c0b923eae7f7f2af23c0
+    "@tonconnect/protocol": "npm:^2.3.0"
+  checksum: 10c0/59d50828367832ba1d41019843c40ef265c60470c0b0caf45620b19229f45d58c37178357d4ed7d8a017540748494e55390dcd43c59c1fd1d7d586a19c4cc0b7
   languageName: node
   linkType: hard
 
-"@tonconnect/ui-react@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "@tonconnect/ui-react@npm:2.1.0"
+"@tonconnect/ui-react@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "@tonconnect/ui-react@npm:2.2.0"
   dependencies:
-    "@tonconnect/ui": "npm:2.1.0"
+    "@tonconnect/ui": "npm:2.2.0"
   peerDependencies:
     react: ">=17.0.0"
     react-dom: ">=17.0.0"
-  checksum: 10c0/538061d4207bd6e11528ce8cc758a256b53a77681e3ee4f29b9b4756db703df1ad5b0955e003fc671140eec67c79ff035ca48cad8d5a598d9376749f172d8df0
+  checksum: 10c0/2d1d67f372a35325045c377d01a3cec794f83145095b0a1bc3496cc043386a8cb8f96f39cb371dee8ea0a64680265d6c0e6269c6d2fb1f9367b2030e94b7a66b
   languageName: node
   linkType: hard
 
-"@tonconnect/ui@npm:2.1.0":
-  version: 2.1.0
-  resolution: "@tonconnect/ui@npm:2.1.0"
+"@tonconnect/ui@npm:2.2.0":
+  version: 2.2.0
+  resolution: "@tonconnect/ui@npm:2.2.0"
   dependencies:
-    "@tonconnect/sdk": "npm:3.1.0"
+    "@tonconnect/sdk": "npm:3.2.0"
     classnames: "npm:^2.3.2"
     csstype: "npm:^3.1.1"
     deepmerge: "npm:^4.2.2"
     ua-parser-js: "npm:^1.0.35"
-  checksum: 10c0/c214e960fe322d9d84f4a4c0fe8193fa8245c743c485f6fc26c7cead6e9cdcac5a9e8d8cf14ca9ec722dcea6820a5cfd2cecacf562232c6325133773c144470f
+  checksum: 10c0/8c85d97bada57b8f6cc1e69b5d6574b6dd42be0bdf10c755e6523baabcf50a6a6b3fa5a35142963564350771cf96e07e85268545d5f97b11f91e5823cba5ec82
   languageName: node
   linkType: hard
 
@@ -2294,9 +2294,9 @@ __metadata:
     "@eslint/js": "npm:^9.28.0"
     "@floating-ui/utils": "npm:^0.2.9"
     "@phosphor-icons/react": "npm:^2.1.10"
-    "@telegram-apps/sdk-react": "npm:^3.3.1"
-    "@telegram-apps/telegram-ui": "npm:^2.1.8"
-    "@tonconnect/ui-react": "npm:^2.1.0"
+    "@telegram-apps/sdk-react": "npm:^3.3.6"
+    "@telegram-apps/telegram-ui": "npm:^2.1.9"
+    "@tonconnect/ui-react": "npm:^2.2.0"
     "@types/emoji-flags": "npm:^1"
     "@types/node": "npm:^22.13.14"
     "@types/react": "npm:^19.1.8"
