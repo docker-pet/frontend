@@ -31,7 +31,7 @@ export function useOtpAuth() {
         throw new Error('Redirect URL must use HTTPS protocol');
       }
 
-      if (!`.${redirectUrl.hostname}`.endsWith(`.${app.value.appDomain}`)) {
+      if (!`.${redirectUrl.hostname}`.endsWith(`.${app.value.appDomain}`) && !`.${redirectUrl.hostname}`.endsWith(`.${app.value.appDomainReverse || '.'}`)) {
         throw new Error('Redirect URL is not allowed');
       }
 
