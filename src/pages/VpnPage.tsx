@@ -68,7 +68,7 @@ const links: Array<{
 
 export const VpnPage: FC = () => {
   const appDomain = user.value.outlineReverseServerEnabled ? app.value.appDomainReverse : app.value.appDomain;
-  const configTitle = encodeURIComponent(`${app.value.appTitle}${user.value.outlineReverseServerEnabled ? ` • Reverse 🥷)` : ''}`)
+  const configTitle = encodeURIComponent(`${app.value.appTitle}${user.value.outlineReverseServerEnabled ? ` • DNS-цензура 🥷)` : ''}`)
   const link = `ssconf://${appDomain}/api/outline/${user.value.id}/${user.value.outlineToken}#${configTitle}`;
   const redirectLink = `https://${appDomain}/redirect?type=outline&id=${encodeURIComponent(user.value.id)}&token=${encodeURIComponent(user.value.outlineToken)}&title=${configTitle}`;
   const [copiedNotification, setCopiedNotification] = useState(false);
