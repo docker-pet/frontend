@@ -33,8 +33,6 @@ export const user = observable({
 });
 
 function setUser(data: IUser) {
-  // TODO: Remove
-  data.outlineReverseServerEnabled = false;
   runInAction(() => {
     user.initialized = true;
     user.value = data;

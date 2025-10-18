@@ -123,7 +123,7 @@ export const VpnPage: FC = () => {
             ))}
           </Select>
 
-          {/* <Cell
+          {user.value.outlineReverseServerEnabled && (<Cell
             Component="label"
             before={<Checkbox
               name="checkbox"
@@ -139,7 +139,7 @@ export const VpnPage: FC = () => {
             multiline
           >
             Обход DNS-цензуры
-          </Cell> */}
+          </Cell>)}
 
           <div style={{ padding: 16 }}>
             <Button
